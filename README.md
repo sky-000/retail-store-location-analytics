@@ -1,4 +1,4 @@
-# retail-store-location-analytics
+# retail-store-location-analytics (Data Obtained from Kaggle)
 
 Data-driven market optimization pipeline built with Python, Pandas, and Matplotlib to isolate high-yield, high-retention regional launch locations for physical retail expansion.
 
