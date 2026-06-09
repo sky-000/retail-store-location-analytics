@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt  #pyplot is a collection of function that make matplotlib work as MATLAB
 import os
 
 def analyze_agrostar_data(file_path='Task_1.csv'):
@@ -30,5 +31,47 @@ def analyze_agrostar_data(file_path='Task_1.csv'):
 
     top_locations = location_ranking.sort_values(by='Total_Revenue' , ascending=False)
 
-    print(top_locations.head(5).to_string(index=False))
+    top5 = top_locations.head(5).copy()
+    print(top5)
+    
+    # Chart 1 - Revenue by City
+    plt.figure(figsize=(8, 5))
+    plt.bar(top5['Corrected City'], top5['Total_Revenue'], color='steelblue')
+    plt.title('Top 5 Cities by Revenue')
+    plt.xlabel('City')
+    plt.ylabel('Revenue')
+    plt.xticks(rotation=30)
+    plt.tight_layout()
+    plt.savefig('revenue_by_city.png')
+    plt.show()
 
+    # Chart 2 - Orders per Farmer by City
+    plt.figure(figsize=(8, 5))
+    plt.barh(top5['Corrected City'], top5['order_per_farmer'], color='coral')
+    plt.title('Orders per Farmer — Top 5 Cities')
+    plt.xlabel('Orders per Farmer')
+    plt.ylabel('City')
+    plt.tight_layout()
+    plt.savefig('orders_per_farmer.png')
+    plt.show()
+
+    # Chart 3 - Unique Customers vs Revenue
+    plt.figure(figsize=(10, 6))
+    plt.scatter(location_ranking['Unique_Customer'], 
+                location_ranking['Total_Revenue'], 
+                color='green', s=100, alpha=0.6)
+
+    # Label only top 5 cities
+    for i, row in top5.iterrows():
+        plt.annotate(row['Corrected City'], 
+                    (row['Unique_Customer'], row['Total_Revenue']),
+                    textcoords='offset points', xytext=(8, 4), fontsize=9, color='red')
+
+    plt.title('Unique Customers vs Total Revenue — All Cities')
+    plt.xlabel('Unique Customers')
+    plt.ylabel('Total Revenue')
+    plt.tight_layout()
+    plt.savefig('customers_vs_revenue.png')
+    plt.show()
+
+analyze_agrostar_data()
