@@ -14,8 +14,13 @@ Simulating a strategic decision checkpoint in August 2018, this pipeline evaluat
 
 To provide clear, actionable insights for organizational stakeholders, the pipeline uses Matplotlib to dynamically generate three diagnostic business plots:
 1. **Total Revenue by Region (Bar Chart):** Illustrates the absolute market size and overall purchasing power across the top 5 candidate regions.
+<img width="1014" height="642" alt="Screenshot 2026-06-09 105722" src="https://github.com/user-attachments/assets/506122e5-7a93-4edc-8049-53affa6cfd39" />
+
 2. **Unique Customer Density (Bar Chart):** Compares the individual active farmer footprint to evaluate sustainable brick-and-mortar walk-in traffic capacity.
+<img width="1266" height="766" alt="Screenshot 2026-06-09 105712" src="https://github.com/user-attachments/assets/612c6e45-eba0-44f6-8a3d-77714d85dfdb" />
+
 3. **Customer Loyalty Index (Line Chart):** Maps the transaction frequency ratio (`Total Orders / Unique Customers`) to track where farmers display the strongest repeat-purchasing behaviors.
+<img width="1013" height="644" alt="Screenshot 2026-06-09 105731" src="https://github.com/user-attachments/assets/323e6d1a-e84d-422c-ba1e-d1c899830e45" />
 
 ## 🛠️ Data Strategy & Pipeline Architecture
 
